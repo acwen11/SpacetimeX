@@ -54,7 +54,7 @@ contains
           if (dir==+1) nsteps = (qlm_ntheta(hn)-qlm_nghoststheta(hn)) - i0
           
           xi(1) = qlm_xi_t(i0,j0,hn)
-          xi(2) = qlm_xi_p(i0,j0,hn)
+          xi(2) = qlm_xip(i0,j0,hn)
           chi = qlm_chi(i0,j0,hn)
           
           call transport (CCTK_PASS_FTOF, hn, i0, j0, dir, 0, nsteps, xi, chi)
@@ -103,7 +103,7 @@ contains
        chi = chi + 0.5d0 * (chi_dot + chi1_dot)
        
        qlm_xi_t(i,j,hn) = xi(1)
-       qlm_xi_p(i,j,hn) = xi(2)
+       qlm_xip(i,j,hn) = xi(2)
        qlm_chi(i,j,hn) = chi
 
     end do

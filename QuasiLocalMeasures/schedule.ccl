@@ -1,16 +1,16 @@
 # Schedule definitions for thorn QuasiLocalMeasures
 
 STORAGE: qlm_state qlm_scalars
-STORAGE: qlm_state_p qlm_scalars_p
-STORAGE: qlm_grid_int qlm_grid_real qlm_grid_real_p
+STORAGE: qlm_statep qlm_scalarsp
+STORAGE: qlm_grid_int qlm_grid_real qlm_grid_realp
 STORAGE: qlm_shapes qlm_tetrad_l qlm_tetrad_n qlm_tetrad_m
-STORAGE: qlm_shapes_p
+STORAGE: qlm_shapesp
 STORAGE: qlm_killing_vector
 
 
 
 # These variables need storage so that they can be output
-STORAGE: qlm_coordinates qlm_coordinates_p
+STORAGE: qlm_coordinates qlm_coordinatesp
 STORAGE: qlm_newman_penrose qlm_weyl_scalars
 STORAGE: qlm_ricci_scalars qlm_twometric qlm_killed_twometric
 STORAGE: qlm_invariant_coordinates qlm_multipole_moments qlm_3determinant
@@ -47,7 +47,7 @@ SCHEDULE qlm_calculate IN qlm_calc_group
 {
   OPTIONS: global
   LANG: Fortran
-  STORAGE: qlm_coordinates qlm_coordinates_p
+  STORAGE: qlm_coordinates qlm_coordinatesp
   STORAGE: qlm_newman_penrose qlm_weyl_scalars
   STORAGE: qlm_ricci_scalars qlm_twometric qlm_killed_twometric 
   STORAGE: qlm_invariant_coordinates qlm_multipole_moments qlm_3determinant

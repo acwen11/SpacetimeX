@@ -178,7 +178,7 @@ contains
     
     call calc_2det (qq, dtq)
     
-    zdot = vv(1) * (- (1/radius**2) * qlm_xi_p(i,j,hn) * sqrt(dtq)) &
+    zdot = vv(1) * (- (1/radius**2) * qlm_xip(i,j,hn) * sqrt(dtq)) &
          + vv(2) * (+ (1/radius**2) * qlm_xi_t(i,j,hn) * sqrt(dtq))
   end function rhs
   

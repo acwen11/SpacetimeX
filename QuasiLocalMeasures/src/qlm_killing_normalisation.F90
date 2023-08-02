@@ -81,7 +81,7 @@ contains
     
     dtheta = killing_interp (qlm_xi_t(:,:,hn), &
          org_theta, org_phi, del_theta, del_phi, theta, phi, ierr1)
-    dphi   = killing_interp (qlm_xi_p(:,:,hn), &
+    dphi   = killing_interp (qlm_xip(:,:,hn), &
          org_theta, org_phi, del_theta, del_phi, theta, phi, ierr2)
     
     if (ierr1/=0 .or. ierr2/=0) then
@@ -106,7 +106,7 @@ contains
        
        dtheta = killing_interp (qlm_xi_t(:,:,hn), &
             org_theta, org_phi, del_theta, del_phi, theta, phi, ierr1)
-       dphi   = killing_interp (qlm_xi_p(:,:,hn), &
+       dphi   = killing_interp (qlm_xip(:,:,hn), &
             org_theta, org_phi, del_theta, del_phi, theta, phi, ierr2)
        
        if (ierr1/=0 .or. ierr2/=0) then
@@ -122,7 +122,7 @@ contains
        
        dtheta = killing_interp (qlm_xi_t(:,:,hn), &
             org_theta, org_phi, del_theta, del_phi, theta2, phi2, ierr1)
-       dphi   = killing_interp (qlm_xi_p(:,:,hn), &
+       dphi   = killing_interp (qlm_xip(:,:,hn), &
             org_theta, org_phi, del_theta, del_phi, theta2, phi2, ierr2)
        
        if (ierr1/=0 .or. ierr2/=0) then

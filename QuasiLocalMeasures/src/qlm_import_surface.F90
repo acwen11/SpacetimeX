@@ -40,26 +40,26 @@ subroutine qlm_import_surface (CCTK_ARGUMENTS, hn)
   if (qlm_calc_error(hn) == 0 .and. cctk_iteration > qlm_iteration(hn)) then
      
      ! Cycle time levels
-     qlm_have_valid_data_p_p(hn)     = qlm_have_valid_data_p(hn)
-     qlm_have_valid_data_p  (hn)     = qlm_have_valid_data  (hn)
-     qlm_have_killing_vector_p_p(hn) = qlm_have_killing_vector_p(hn)
-     qlm_have_killing_vector_p  (hn) = qlm_have_killing_vector  (hn)
+     qlm_have_valid_datapp(hn)     = qlm_have_valid_datap(hn)
+     qlm_have_valid_datap  (hn)     = qlm_have_valid_data  (hn)
+     qlm_have_killing_vectorpp(hn) = qlm_have_killing_vectorp(hn)
+     qlm_have_killing_vectorp  (hn) = qlm_have_killing_vector  (hn)
      qlm_iteration(hn)               = cctk_iteration
      
-     qlm_time_p_p(hn) = qlm_time_p(hn)
-     qlm_time_p  (hn) = qlm_time  (hn)
-     qlm_radius_p_p(hn) = qlm_radius_p(hn)
-     qlm_radius_p  (hn) = qlm_radius  (hn)
+     qlm_timepp(hn) = qlm_timep(hn)
+     qlm_timep  (hn) = qlm_time  (hn)
+     qlm_radiuspp(hn) = qlm_radiusp(hn)
+     qlm_radiusp  (hn) = qlm_radius  (hn)
      
-     qlm_origin_x_p_p(hn) = qlm_origin_x_p(hn)
-     qlm_origin_x_p  (hn) = qlm_origin_x  (hn)
-     qlm_origin_y_p_p(hn) = qlm_origin_y_p(hn)
-     qlm_origin_y_p  (hn) = qlm_origin_y  (hn)
-     qlm_origin_z_p_p(hn) = qlm_origin_z_p(hn)
-     qlm_origin_z_p  (hn) = qlm_origin_z  (hn)
+     qlm_origin_xpp(hn) = qlm_origin_xp(hn)
+     qlm_origin_xp  (hn) = qlm_origin_x  (hn)
+     qlm_origin_ypp(hn) = qlm_origin_yp(hn)
+     qlm_origin_yp  (hn) = qlm_origin_y  (hn)
+     qlm_origin_zpp(hn) = qlm_origin_zp(hn)
+     qlm_origin_zp  (hn) = qlm_origin_z  (hn)
      
-     qlm_shape_p_p(:,:,hn) = qlm_shape_p(:,:,hn)
-     qlm_shape_p  (:,:,hn) = qlm_shape  (:,:,hn)
+     qlm_shapepp(:,:,hn) = qlm_shapep(:,:,hn)
+     qlm_shapep  (:,:,hn) = qlm_shape  (:,:,hn)
      
   end if
   
@@ -83,9 +83,9 @@ subroutine qlm_import_surface (CCTK_ARGUMENTS, hn)
   qlm_have_valid_data(hn) = 0
   qlm_have_killing_vector(hn) = 1
   
-  if (qlm_have_valid_data_p(hn) == 0) then
+  if (qlm_have_valid_datap(hn) == 0) then
      qlm_timederiv_order(hn) = 0
-  else if (qlm_have_valid_data_p_p(hn) == 0) then
+  else if (qlm_have_valid_datapp(hn) == 0) then
      qlm_timederiv_order(hn) = 1
   else
      qlm_timederiv_order(hn) = 2

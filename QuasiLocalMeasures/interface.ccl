@@ -26,10 +26,10 @@ REAL qlm_state[num_surfaces] TYPE=scalar
   qlm_iteration           # iteration for current data
 } "Status information"
 
-REAL qlm_state_p[num_surfaces] TYPE=scalar
+REAL qlm_statep[num_surfaces] TYPE=scalar
 {
-  qlm_have_valid_data_p qlm_have_valid_data_p_p
-  qlm_have_killing_vector_p qlm_have_killing_vector_p_p
+  qlm_have_valid_datap qlm_have_valid_datapp
+  qlm_have_killing_vectorp qlm_have_killing_vectorpp
 } "Previous status information"
   
 REAL qlm_grid_int[num_surfaces] TYPE=scalar
@@ -45,10 +45,10 @@ REAL qlm_grid_real[num_surfaces] TYPE=scalar
   qlm_delta_theta qlm_delta_phi
 } "Grid description"
 
-REAL qlm_grid_real_p[num_surfaces] TYPE=scalar
+REAL qlm_grid_realp[num_surfaces] TYPE=scalar
 {
-  qlm_origin_x_p qlm_origin_y_p qlm_origin_z_p
-  qlm_origin_x_p_p qlm_origin_y_p_p qlm_origin_z_p_p
+  qlm_origin_xp qlm_origin_yp qlm_origin_zp
+  qlm_origin_xpp qlm_origin_ypp qlm_origin_zpp
 } "Previous grid description"
 
 REAL qlm_shapes[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,SphericalSurface::maxnphi DISTRIB=constant TAGS='convergence_power=1'
@@ -56,9 +56,9 @@ REAL qlm_shapes[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,
   qlm_shape
 } "Shape of the surface"
 
-REAL qlm_shapes_p[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,SphericalSurface::maxnphi DISTRIB=constant TAGS='convergence_power=1'
+REAL qlm_shapesp[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,SphericalSurface::maxnphi DISTRIB=constant TAGS='convergence_power=1'
 {
-  qlm_shape_p qlm_shape_p_p
+  qlm_shapep qlm_shapepp
 } "Previous shapes of the surface"
 
 REAL qlm_coordinates[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,SphericalSurface::maxnphi DISTRIB=constant TAGS='convergence_power=1'
@@ -67,10 +67,10 @@ REAL qlm_coordinates[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxnt
 } "Cartesian coordinates of the grid points on the surface"
 
 # TODO: make this group private, i.e., move it into qlm_variables.F90
-REAL qlm_coordinates_p[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,SphericalSurface::maxnphi DISTRIB=constant TAGS='convergence_power=1'
+REAL qlm_coordinatesp[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,SphericalSurface::maxnphi DISTRIB=constant TAGS='convergence_power=1'
 {
-  qlm_x_p qlm_y_p qlm_z_p
-  qlm_x_p_p qlm_y_p_p qlm_z_p_p
+  qlm_xp qlm_yp qlm_zp
+  qlm_xpp qlm_ypp qlm_zpp
 } "Past Cartesian coordinates of the grid points on the surface"
 
 REAL qlm_tetrad_l[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,SphericalSurface::maxnphi DISTRIB=constant TAGS='convergence_power=1'
@@ -137,7 +137,7 @@ REAL qlm_twometric[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxnthe
 
 REAL qlm_killing_vector[num_surfaces] TYPE=array DIM=2 SIZE=SphericalSurface::maxntheta,SphericalSurface::maxnphi DISTRIB=constant TAGS='convergence_power=1'
 {
-  qlm_xi_t qlm_xi_p
+  qlm_xi_t qlm_xip
   qlm_chi
 } "Killing vector field"
 
@@ -185,8 +185,8 @@ REAL qlm_scalars[num_surfaces] TYPE=scalar
   qlm_w_angular_momentum_x qlm_w_angular_momentum_y qlm_w_angular_momentum_z
 } "Scalar quantities on the surface"
 
-REAL qlm_scalars_p[num_surfaces] TYPE=scalar
+REAL qlm_scalarsp[num_surfaces] TYPE=scalar
 {
-  qlm_time_p qlm_time_p_p
-  qlm_radius_p qlm_radius_p_p
+  qlm_timep qlm_timepp
+  qlm_radiusp qlm_radiuspp
 } "Some scalar quantities on the surface at previous times"

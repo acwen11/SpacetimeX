@@ -40,12 +40,12 @@ subroutine qlm_calc_newman_penrose1 (CCTK_ARGUMENTS, hn)
   end if
   
   t0 = qlm_time(hn)
-  t1 = qlm_time_p(hn)
-  t2 = qlm_time_p_p(hn)
+  t1 = qlm_timep(hn)
+  t2 = qlm_timepp(hn)
   
   ce0 = qlm_have_valid_data(hn) == 0
-  ce1 = qlm_have_valid_data_p(hn) == 0
-  ce2 = qlm_have_valid_data_p_p(hn) == 0
+  ce1 = qlm_have_valid_datap(hn) == 0
+  ce2 = qlm_have_valid_datapp(hn) == 0
   
   delta_space(:) = (/ qlm_delta_theta(hn), qlm_delta_phi(hn) /)
   

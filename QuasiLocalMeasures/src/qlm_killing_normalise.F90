@@ -44,9 +44,9 @@ subroutine qlm_killing_normalise (CCTK_ARGUMENTS, hn)
   do ii=1,ngeodesics
      i = 1 + qlm_nghoststheta(hn) &
           + ii * (qlm_ntheta(hn) - 2*qlm_nghoststheta(hn) - 1) / (ngeodesics+1)
-     if (qlm_xi_p(i,j,hn) < 0) then
+     if (qlm_xip(i,j,hn) < 0) then
         qlm_xi_t(:,:,hn) = -qlm_xi_t(:,:,hn)
-        qlm_xi_p(:,:,hn) = -qlm_xi_p(:,:,hn)
+        qlm_xip(:,:,hn) = -qlm_xip(:,:,hn)
         qlm_chi (:,:,hn) = -qlm_chi (:,:,hn)
      end if
      theta = qlm_origin_theta(hn) + (i-1) * qlm_delta_theta(hn)
@@ -94,7 +94,7 @@ subroutine qlm_killing_normalise (CCTK_ARGUMENTS, hn)
      call CCTK_INFO (msg)
   end if
   qlm_xi_t(:,:,hn) = qlm_xi_t(:,:,hn) * factor
-  qlm_xi_p(:,:,hn) = qlm_xi_p(:,:,hn) * factor
+  qlm_xip(:,:,hn) = qlm_xip(:,:,hn) * factor
   qlm_chi (:,:,hn) = qlm_chi (:,:,hn) * factor
   
   

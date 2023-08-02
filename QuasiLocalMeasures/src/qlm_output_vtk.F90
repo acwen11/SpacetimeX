@@ -90,7 +90,7 @@ subroutine qlm_output_vtk (CCTK_ARGUMENTS, hn, file_name)
   call writescalar_complex ('psi3', qlm_psi3(:,:,hn))
   call writescalar_complex ('psi4', qlm_psi4(:,:,hn))
   call writescalar ('xit', qlm_xi_t(:,:,hn))
-  call writescalar ('xip', qlm_xi_p(:,:,hn))
+  call writescalar ('xip', qlm_xip(:,:,hn))
   call writescalar ('chi', qlm_chi(:,:,hn))
 
   close (unit)

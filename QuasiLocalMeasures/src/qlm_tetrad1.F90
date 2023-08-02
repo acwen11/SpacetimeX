@@ -161,13 +161,13 @@ subroutine qlm_calc_tetrad1 (CCTK_ARGUMENTS, hn)
         ee(1,2) = qlm_y(i,j,hn) - qlm_origin_y(hn)
         ee(1,3) = qlm_z(i,j,hn) - qlm_origin_z(hn)
         
-        !ee_p(1,1) = qlm_x_p(i,j,hn) - qlm_origin_x_p(hn)
-        !ee_p(1,2) = qlm_y_p(i,j,hn) - qlm_origin_y_p(hn)
-        !ee_p(1,3) = qlm_z_p(i,j,hn) - qlm_origin_z_p(hn)
+        !ee_p(1,1) = qlm_xp(i,j,hn) - qlm_origin_xp(hn)
+        !ee_p(1,2) = qlm_yp(i,j,hn) - qlm_origin_yp(hn)
+        !ee_p(1,3) = qlm_zp(i,j,hn) - qlm_origin_zp(hn)
         
-        !ee_p_p(1,1) = qlm_x_p_p(i,j,hn) - qlm_origin_x_p_p(hn)
-        !ee_p_p(1,2) = qlm_y_p_p(i,j,hn) - qlm_origin_y_p_p(hn)
-        !ee_p_p(1,3) = qlm_z_p_p(i,j,hn) - qlm_origin_z_p_p(hn)
+        !ee_p_p(1,1) = qlm_xpp(i,j,hn) - qlm_origin_xpp(hn)
+        !ee_p_p(1,2) = qlm_ypp(i,j,hn) - qlm_origin_ypp(hn)
+        !ee_p_p(1,3) = qlm_zpp(i,j,hn) - qlm_origin_zpp(hn)
         
         dee(1,0,:) = 0
         !dee(1,1:3,0) = timederiv (ee(1,1:3), ee_p(1,1:3), ee_p_p(1,1:3), t0,t1,t2, ce0,ce1,ce2)
@@ -184,13 +184,13 @@ subroutine qlm_calc_tetrad1 (CCTK_ARGUMENTS, hn)
         ee(2:3,2) = deriv (qlm_y(:,:,hn), i,j, delta_space)
         ee(2:3,3) = deriv (qlm_z(:,:,hn), i,j, delta_space)
         
-        ee_p(2:3,1) = deriv (qlm_x_p(:,:,hn), i,j, delta_space)
-        ee_p(2:3,2) = deriv (qlm_y_p(:,:,hn), i,j, delta_space)
-        ee_p(2:3,3) = deriv (qlm_z_p(:,:,hn), i,j, delta_space)
+        ee_p(2:3,1) = deriv (qlm_xp(:,:,hn), i,j, delta_space)
+        ee_p(2:3,2) = deriv (qlm_yp(:,:,hn), i,j, delta_space)
+        ee_p(2:3,3) = deriv (qlm_zp(:,:,hn), i,j, delta_space)
         
-        ee_p_p(2:3,1) = deriv (qlm_x_p_p(:,:,hn), i,j, delta_space)
-        ee_p_p(2:3,2) = deriv (qlm_y_p_p(:,:,hn), i,j, delta_space)
-        ee_p_p(2:3,3) = deriv (qlm_z_p_p(:,:,hn), i,j, delta_space)
+        ee_p_p(2:3,1) = deriv (qlm_xpp(:,:,hn), i,j, delta_space)
+        ee_p_p(2:3,2) = deriv (qlm_ypp(:,:,hn), i,j, delta_space)
+        ee_p_p(2:3,3) = deriv (qlm_zpp(:,:,hn), i,j, delta_space)
         
         dee(2:3,0,:) = 0
         !dee(2:3,1:3,0) = timederiv (ee(2:3,1:3), ee_p(2:3,1:3), ee_p_p(2:3,1:3), t0,t1,t2, ce0,ce1,ce2)

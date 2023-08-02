@@ -53,10 +53,10 @@ subroutine qlm_killing_test (CCTK_ARGUMENTS, hn)
         dqq(2,1,:) = dqq(1,2,:)
         
         xi(1) = qlm_xi_t(i,j,hn)
-        xi(2) = qlm_xi_p(i,j,hn)
+        xi(2) = qlm_xip(i,j,hn)
         
         dxi(1,1:2) = deriv (qlm_xi_t(:,:,hn), i, j, delta_space)
-        dxi(2,1:2) = deriv (qlm_xi_p(:,:,hn), i, j, delta_space)
+        dxi(2,1:2) = deriv (qlm_xip(:,:,hn), i, j, delta_space)
         
         ! L_xi q_ab = q_cb d_a xi^c + q_ac d_b xi^c + xi^c d_c q_ab
         do a=1,2

@@ -143,13 +143,13 @@ CCTK_FNAME(qlm_broadcast) (CCTK_POINTER_TO_CONST * restrict const cctkGH_)
     int const root = hn % num_procs;
     
     bcast (cctkGH, "QuasiLocalMeasures::qlm_state"      , hn, root);
-    bcast (cctkGH, "QuasiLocalMeasures::qlm_state_p"    , hn, root);
+    bcast (cctkGH, "QuasiLocalMeasures::qlm_statep"    , hn, root);
     bcast (cctkGH, "QuasiLocalMeasures::qlm_grid_int"   , hn, root);
     bcast (cctkGH, "QuasiLocalMeasures::qlm_grid_real"  , hn, root);
-    bcast (cctkGH, "QuasiLocalMeasures::qlm_grid_real_p", hn, root);
+    bcast (cctkGH, "QuasiLocalMeasures::qlm_grid_realp", hn, root);
     
     bcast (cctkGH, "QuasiLocalMeasures::qlm_shapes"               , hn, root);
-    bcast (cctkGH, "QuasiLocalMeasures::qlm_shapes_p"             , hn, root);
+    bcast (cctkGH, "QuasiLocalMeasures::qlm_shapesp"             , hn, root);
     bcast (cctkGH, "QuasiLocalMeasures::qlm_coordinates"          , hn, root);
     bcast (cctkGH, "QuasiLocalMeasures::qlm_tetrad_l"             , hn, root);
     bcast (cctkGH, "QuasiLocalMeasures::qlm_tetrad_n"             , hn, root);
@@ -167,7 +167,7 @@ CCTK_FNAME(qlm_broadcast) (CCTK_POINTER_TO_CONST * restrict const cctkGH_)
     bcast (cctkGH, "QuasiLocalMeasures::qlm_3determinant", hn, root);
     
     bcast (cctkGH, "QuasiLocalMeasures::qlm_scalars"  , hn, root);
-    bcast (cctkGH, "QuasiLocalMeasures::qlm_scalars_p", hn, root);
+    bcast (cctkGH, "QuasiLocalMeasures::qlm_scalarsp", hn, root);
     
   } /* for hn */
 }

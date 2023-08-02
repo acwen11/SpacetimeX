@@ -25,7 +25,7 @@ subroutine qlm_killing_axial (CCTK_ARGUMENTS, hn)
         chi = 0
         
         qlm_xi_t(i,j,hn) = xi(1)
-        qlm_xi_p(i,j,hn) = xi(2)
+        qlm_xip(i,j,hn) = xi(2)
         
         qlm_chi(i,j,hn) = chi
         

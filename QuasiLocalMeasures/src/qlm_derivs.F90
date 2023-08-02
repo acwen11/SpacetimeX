@@ -162,8 +162,8 @@ contains
     CCTK_REAL :: dt1, dt2
     CCTK_REAL :: fdot1, fdot2
     
-!!$    dt1 = qlm_time(hn) - qlm_time_p(hn)
-!!$    dt2 = qlm_time(hn) - qlm_time_p_p(hn)
+!!$    dt1 = qlm_time(hn) - qlm_timep(hn)
+!!$    dt2 = qlm_time(hn) - qlm_timepp(hn)
     dt1 = t0 - t1
     dt2 = t0 - t2
     

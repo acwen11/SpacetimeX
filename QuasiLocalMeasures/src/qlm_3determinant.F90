@@ -41,12 +41,12 @@ SUBROUTINE qlm_calc_3determinant (CCTK_ARGUMENTS, hn)
   END IF
   
   t0 = qlm_time(hn)
-  t1 = qlm_time_p(hn)
-  t2 = qlm_time_p_p(hn)
+  t1 = qlm_timep(hn)
+  t2 = qlm_timepp(hn)
   
   ce0 = qlm_have_valid_data(hn) == 0
-  ce1 = qlm_have_valid_data_p(hn) == 0
-  ce2 = qlm_have_valid_data_p_p(hn) == 0
+  ce1 = qlm_have_valid_datap(hn) == 0
+  ce2 = qlm_have_valid_datapp(hn) == 0
   
   delta_space(:) = (/ qlm_delta_theta(hn), qlm_delta_phi(hn) /)
   
@@ -86,13 +86,13 @@ SUBROUTINE qlm_calc_3determinant (CCTK_ARGUMENTS, hn)
         rr(2) = qlm_y(i,j,hn)
         rr(3) = qlm_z(i,j,hn)
         
-        rr_p(1) = qlm_x_p(i,j,hn)
-        rr_p(2) = qlm_y_p(i,j,hn)
-        rr_p(3) = qlm_z_p(i,j,hn)
+        rr_p(1) = qlm_xp(i,j,hn)
+        rr_p(2) = qlm_yp(i,j,hn)
+        rr_p(3) = qlm_zp(i,j,hn)
         
-        rr_p_p(1) = qlm_x_p_p(i,j,hn)
-        rr_p_p(2) = qlm_y_p_p(i,j,hn)
-        rr_p_p(3) = qlm_z_p_p(i,j,hn)
+        rr_p_p(1) = qlm_xpp(i,j,hn)
+        rr_p_p(2) = qlm_ypp(i,j,hn)
+        rr_p_p(3) = qlm_zpp(i,j,hn)
         
         Ttilde(0)   = 1
         Ttilde(1:3) = timederiv (rr, rr_p, rr_p_p, t0,t1,t2, ce0,ce1,ce2)

@@ -91,7 +91,7 @@ subroutine qlm_killing_gradient (CCTK_ARGUMENTS, hn)
         end do
         
         qlm_xi_t(i,j,hn) = xi(1)
-        qlm_xi_p(i,j,hn) = xi(2)
+        qlm_xip(i,j,hn) = xi(2)
         
 #if 0
         ! xi^a = eps^ab D_b ||D_c |Psi_2|^2||
@@ -103,14 +103,14 @@ subroutine qlm_killing_gradient (CCTK_ARGUMENTS, hn)
         end do
         
         qlm_xi_t(i,j,hn) = xi(1)
-        qlm_xi_p(i,j,hn) = xi(2)
+        qlm_xip(i,j,hn) = xi(2)
 #endif
         
      end do
   end do
   
   call set_boundary (CCTK_PASS_FTOF, hn, qlm_xi_t(:,:,hn), -1)
-  call set_boundary (CCTK_PASS_FTOF, hn, qlm_xi_p(:,:,hn), -1)
+  call set_boundary (CCTK_PASS_FTOF, hn, qlm_xip(:,:,hn), -1)
   
   
   
@@ -119,12 +119,12 @@ subroutine qlm_killing_gradient (CCTK_ARGUMENTS, hn)
      do i = 1+qlm_nghoststheta(hn), qlm_ntheta(hn)-qlm_nghoststheta(hn)
         
         xi(1) = qlm_xi_t(i,j,hn)
-        xi(2) = qlm_xi_p(i,j,hn)
+        xi(2) = qlm_xip(i,j,hn)
         
         if (sum(xi**2) < 1.0d-4**2) then
            
            qlm_xi_t(i,j,hn) = sum(qlm_xi_t(i:i+1,j:j+1,hn)) / 4
-           qlm_xi_p(i,j,hn) = sum(qlm_xi_p(i:i+1,j:j+1,hn)) / 4
+           qlm_xip(i,j,hn) = sum(qlm_xip(i:i+1,j:j+1,hn)) / 4
            
         end if
         
@@ -132,7 +132,7 @@ subroutine qlm_killing_gradient (CCTK_ARGUMENTS, hn)
   end do
   
   call set_boundary (CCTK_PASS_FTOF, hn, qlm_xi_t(:,:,hn), -1)
-  call set_boundary (CCTK_PASS_FTOF, hn, qlm_xi_p(:,:,hn), -1)
+  call set_boundary (CCTK_PASS_FTOF, hn, qlm_xip(:,:,hn), -1)
   
   
   
@@ -148,7 +148,7 @@ subroutine qlm_killing_gradient (CCTK_ARGUMENTS, hn)
         call calc_2det (qq, dtq)
         
         dxi(1,1:2) = deriv (qlm_xi_t(:,:,hn), i, j, delta_space)
-        dxi(2,1:2) = deriv (qlm_xi_p(:,:,hn), i, j, delta_space)
+        dxi(2,1:2) = deriv (qlm_xip(:,:,hn), i, j, delta_space)
         
         ! eps_ab sqrt(q) chi = D_b xi_a
         !        sqrt(q) chi = -1/2 eps^ab D_a xi_b

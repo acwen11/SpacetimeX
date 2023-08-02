@@ -126,7 +126,7 @@ subroutine qlm_killing_transport (CCTK_ARGUMENTS, hn)
   call transport_along_meridians (CCTK_PASS_FTOF, hn, i0)
   
   call set_boundary (CCTK_PASS_FTOF, hn, qlm_xi_t(:,:,hn), -1)
-  call set_boundary (CCTK_PASS_FTOF, hn, qlm_xi_p(:,:,hn), -1)
+  call set_boundary (CCTK_PASS_FTOF, hn, qlm_xip(:,:,hn), -1)
   call set_boundary (CCTK_PASS_FTOF, hn, qlm_chi (:,:,hn), +1)
   
 9999 continue

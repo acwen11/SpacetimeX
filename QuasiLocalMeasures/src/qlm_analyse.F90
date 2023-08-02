@@ -234,7 +234,7 @@ subroutine qlm_analyse (CCTK_ARGUMENTS, hn)
         ee(3,1:2) = deriv (qlm_z(:,:,hn), i, j, delta_space)
         
         xi(1) = qlm_xi_t(i,j,hn)
-        xi(2) = qlm_xi_p(i,j,hn)
+        xi(2) = qlm_xip(i,j,hn)
         
         if (i == i_eq) then
            qlm_equatorial_circumference(hn) = qlm_equatorial_circumference(hn) &
