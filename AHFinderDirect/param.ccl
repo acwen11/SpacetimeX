@@ -9,7 +9,7 @@
 
 # we may need to look at some grid:: parameters to choose our patch system type
 # note our access is read-only
-# shares: Coordinates
+# shares: CoordinatesX
 # USES KEYWORD domain
 # USES KEYWORD bitant_plane
 # USES KEYWORD quadrant_direction

@@ -15,9 +15,9 @@ extern "C" void AHFinder_test_interpolation(CCTK_ARGUMENTS) {
   const vector<CCTK_INT> all_operations{0, 1, 2, 3, 11, 12, 13, 22, 23, 33};
 
   const vector<CCTK_INT> all_varinds{
-      CCTK_VarIndex("Coordinates::vcoordx"),
-      CCTK_VarIndex("Coordinates::vcoordy"),
-      CCTK_VarIndex("Coordinates::vcoordz"),
+      CCTK_VarIndex("CoordinatesX::vcoordx"),
+      CCTK_VarIndex("CoordinatesX::vcoordy"),
+      CCTK_VarIndex("CoordinatesX::vcoordz"),
   };
 
   const int nvars = all_varinds.size() * all_operations.size();
