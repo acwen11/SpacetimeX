@@ -4,6 +4,10 @@ BOOLEAN verbose "speak up?" STEERABLE=always
 {
 } "no"
 
+BOOLEAN force_circular_path "set one puncture to move in circle" STEERABLE=always
+{
+} "no"
+
 BOOLEAN read_shifts "Enable to write nearby shifts to stdout" STEERABLE=always
 {
 } "no"

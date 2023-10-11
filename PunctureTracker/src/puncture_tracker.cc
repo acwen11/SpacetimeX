@@ -100,13 +100,27 @@ extern "C" void PunctureTracker_Track(CCTK_ARGUMENTS) {
 		}
   }
 
+	// Force circular path for debugging
+	if (force_circular_path) {
+		pt_loc_x[0] = 0.3 * cos((2 * M_PI / 20) * cctk_iteration);
+		pt_loc_y[0] = 0.3 * sin((2 * M_PI / 20) * cctk_iteration);
+		pt_loc_z[0] = 0;
+
+		if (track_boxes) {
+			position_x[0] = pt_loc_x[0];
+			position_y[0] = pt_loc_y[0];
+			position_z[0] = pt_loc_z[0];
+		}
+		return;
+	}
+
   // Interpolate
 
   // Dimensions
   const int dim = 3;
 
   // Interpolation operator
-  const int operator_handle =
+ const int operator_handle =
       CCTK_InterpHandle("Lagrange polynomial interpolation");
   if (operator_handle < 0) {
     CCTK_WARN(CCTK_WARN_ALERT, "Can't get interpolation handle");
