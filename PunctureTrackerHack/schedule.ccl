@@ -1,0 +1,19 @@
+# Schedule definitions for thorn PunctureTracker
+
+SCHEDULE PunctureTracker_Init AT initial
+{
+  LANG: C
+	WRITES: pt_loc
+	WRITES: pt_vel
+	WRITES: BoxInBox::positions
+  OPTIONS: GLOBAL
+} "Calculate initial location of punctures"
+
+SCHEDULE PunctureTracker_Track AT evol AFTER ODESolvers_Solve
+{
+  LANG: C
+	WRITES: pt_loc
+	WRITES: pt_vel
+	WRITES: BoxInBox::positions
+  OPTIONS: GLOBAL
+} "Calculate new location of punctures"
